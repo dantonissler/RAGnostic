@@ -15,17 +15,17 @@ app = FastAPI(
     title="RAGnostic",
     summary="""API para automação de processos internos utilizando RAG, processamento de PDFs e IA generativa.""",
     description="""
-    A API de Automação - CSC Banco Bradesco permite o processamento de documentos PDF para extração de informações, 
-    armazenamento no MongoDB e recuperação inteligente utilizando embeddings e OpenAI GPT-4.
+A API de Automação - CSC Banco Bradesco permite o processamento de documentos PDF para extração de informações, 
+armazenamento no MongoDB e recuperação inteligente utilizando embeddings e OpenAI GPT-4.
 
-    ## Funcionalidades:
-    - 📄 **Upload de PDFs**: Processamento e extração de texto de documentos.
-    - 🔍 **Busca Inteligente**: Localização de documentos relevantes com base em embeddings.
-    - 🤖 **Geração de Respostas com IA**: Uso do GPT-4 para fornecer respostas baseadas em contexto.
-    - ⚡ **Cache Inteligente**: Utilização do Redis para otimização das buscas.
-    - 🔗 **API Documentada**: Acessível via Swagger UI.
+## Funcionalidades:
+- 📄 **Upload de PDFs**: Processamento e extração de texto de documentos.
+- 🔍 **Busca Inteligente**: Localização de documentos relevantes com base em embeddings.
+- 🤖 **Geração de Respostas com IA**: Uso do GPT-4 para fornecer respostas baseadas em contexto.
+- ⚡ **Cache Inteligente**: Utilização do Redis para otimização das buscas.
+- 🔗 **API Documentada**: Acessível via Swagger UI.
 
-    Para mais detalhes, acesse a documentação interativa em `/docs`.
+Para mais detalhes, acesse a documentação interativa em `/docs`.
     
 ```Responsáveis: Danton Issler Rodrigues```
     """,
