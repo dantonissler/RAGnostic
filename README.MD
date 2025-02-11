@@ -1,4 +1,5 @@
-# API de Automacao - CSC Banco Bradesco
+# RAGnostic
+## API para automação de processos internos utilizando RAG, processamento de PDFs e IA generativa.
 
 ## Responsaveis
 
