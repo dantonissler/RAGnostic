@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+mongoengine
+pymupdf
+sentence-transformers
+torch
+openai
+redis
+python-dotenv
