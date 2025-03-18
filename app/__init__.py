@@ -55,7 +55,6 @@ except Exception as e:
     # Configura o logging com o nível de log INFO como padrão
     logging.basicConfig(level=logging.INFO)
 
-from app.controllers import ai_controller, document_controller
+from app.controllers import document_controller
 
-app.include_router(ai_controller.router)
 app.include_router(document_controller.router)
