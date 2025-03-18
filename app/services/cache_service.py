@@ -1,9 +1,9 @@
-import os
-
-import redis
 import json
+import os
 from functools import wraps
 from typing import Callable
+
+import redis
 
 redis_client = redis.Redis.from_url(os.getenv("REDIS_URL"))
 

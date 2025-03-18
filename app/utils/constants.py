@@ -2,7 +2,6 @@ import tempfile
 
 
 class Constants:
-
     TEMP_DIR = tempfile.gettempdir()
     ROOT_FOLDER = 'resources/'
     LOG = f'{ROOT_FOLDER}logs/'

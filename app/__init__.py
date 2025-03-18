@@ -55,6 +55,23 @@ except Exception as e:
     # Configura o logging com o nível de log INFO como padrão
     logging.basicConfig(level=logging.INFO)
 
-from app.controllers import document_controller
+# Caminho para salvar o banco de dados vetorial
+VECTOR_STORE_PATH = "resource/vector_store.faiss"
 
-app.include_router(document_controller.router)
+from app.services.vector_service import load_vector_store
+
+# Tenta carregar o banco de dados vetorial existente
+vector_store = None
+if os.path.exists(VECTOR_STORE_PATH):
+    vector_store = load_vector_store()
+
+from app.controllers.document_controller import router as document_router
+from app.controllers.search_controller import router as search_router
+from app.controllers.vector_controller import router as vector_router
+from app.controllers.ai_controller import router as ai_router
+
+# Registra os routers
+app.include_router(document_router)
+app.include_router(search_router)
+app.include_router(vector_router)
+app.include_router(ai_router)
