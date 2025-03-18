@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.8-base
+FROM python:3.12-slim
 
 WORKDIR /app
 
