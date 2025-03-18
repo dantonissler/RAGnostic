@@ -11,20 +11,25 @@ load_dotenv()
 
 app = FastAPI(
     title="RAGnostic",
-    summary="""API para automação de processos internos utilizando RAG, processamento de PDFs e IA generativa.""",
+    summary="API para automação de processos internos utilizando RAG (Retrieval-Augmented Generation), processamento de PDFs e IA generativa.",
     description="""
-A API de Automação - CSC Banco Bradesco permite o processamento de documentos PDF para extração de informações, 
-armazenamento no MongoDB e recuperação inteligente utilizando embeddings e OpenAI GPT-4.
+A **RAGnostic** é uma API de automação desenvolvida para o **CSC Banco Bradesco**, que combina técnicas avançadas de **RAG**, processamento de documentos PDF e **IA generativa** para otimizar a extração, armazenamento e recuperação de informações.
 
-## Funcionalidades:
-- 📄 **Upload de PDFs**: Processamento e extração de texto de documentos.
-- 🔍 **Busca Inteligente**: Localização de documentos relevantes com base em embeddings.
-- 🤖 **Geração de Respostas com IA**: Uso do GPT-4 para fornecer respostas baseadas em contexto.
-- ⚡ **Cache Inteligente**: Utilização do Redis para otimização das buscas.
-- 🔗 **API Documentada**: Acessível via Swagger UI.
+## Funcionalidades Principais:
+- 📄 **Upload de PDFs**: Extração de texto de documentos PDF, incluindo suporte a OCR para imagens.
+- 🗂️ **Armazenamento Flexível**: Armazenamento de documentos no **MongoDB** e/ou em um banco de dados vetorial (**FAISS**) para buscas semânticas.
+- 🔍 **Busca Inteligente**: Recuperação de documentos relevantes com base em embeddings e similaridade semântica.
+- 🤖 **Geração de Respostas com IA**: Integração com **OpenAI GPT-4** para gerar respostas contextualizadas a partir dos documentos.
+- ⚡ **Cache Inteligente**: Utilização do **Redis** para otimizar o desempenho das buscas e respostas.
+- 📚 **API Documentada**: Documentação interativa via **Swagger UI** para facilitar a integração e testes.
+
+## Como Utilizar:
+1. **Upload de PDFs**: Envie documentos PDF para o endpoint `/documents/upload/` ou `/vector/upload/` para processamento e armazenamento.
+2. **Busca de Documentos**: Consulte documentos relevantes usando o endpoint `/search/` (MongoDB) ou `/vector/search/` (FAISS).
+3. **Geração de Respostas**: Utilize o endpoint `/ai/generate-answer/` para obter respostas geradas por IA com base nos documentos processados.
 
 Para mais detalhes, acesse a documentação interativa em `/docs`.
-    
+
 ```Responsáveis: Danton Issler Rodrigues```
     """,
     version=os.environ.get("VERSION"),
