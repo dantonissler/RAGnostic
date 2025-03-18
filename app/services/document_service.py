@@ -1,15 +1,7 @@
-import os
-
 import numpy as np
-from mongoengine import connect
-from sentence_transformers import SentenceTransformer
 
+from app import model
 from app.data.models.document import DocumentModel
-
-# Conecta ao MongoDB
-connect(host=os.getenv("MONGO_URI"))
-
-model = SentenceTransformer('all-MiniLM-L6-v2')
 
 
 def save_document(text: str):

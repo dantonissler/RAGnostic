@@ -1,4 +1,5 @@
-from mongoengine import Document, EmbeddedDocument, fields
+from mongoengine import Document, fields
+
 
 class DocumentModel(Document):
     text = fields.StringField(required=True)

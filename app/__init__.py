@@ -4,10 +4,8 @@ import os
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
-
-from app.services.document_service import save_document, search_documents
-from app.services.rag_service import generate_answer
-from app.utils.pdf_parser import parse_pdf
+from mongoengine import connect, disconnect
+from sentence_transformers import SentenceTransformer
 
 load_dotenv()
 
@@ -35,6 +33,12 @@ Para mais detalhes, acesse a documentação interativa em `/docs`.
     swagger_ui_parameters={"syntaxHighlight.theme": "ascetic", "deepLinking": False, "defaultModelsExpandDepth": -1, "filter": True, "docExpansion": "none"}
 )
 
+# Inicializa o banco de dados mongoengine
+host_mongo = os.getenv("MONGO_URI")
+disconnect(alias='default')
+connect(db='rag_db', host=host_mongo)
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
 from app.utils.files import Files
 
 # Criar a estrutura de pastas necessárias para rodar a aplicação.
@@ -51,7 +55,7 @@ except Exception as e:
     # Configura o logging com o nível de log INFO como padrão
     logging.basicConfig(level=logging.INFO)
 
-from app.controllers import ai_controller,document_controller
+from app.controllers import ai_controller, document_controller
 
 app.include_router(ai_controller.router)
 app.include_router(document_controller.router)

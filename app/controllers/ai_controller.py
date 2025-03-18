@@ -17,4 +17,4 @@ async def generate_ai_answer(query: str, token: str = Depends(get_token)):
     context = "\n\n".join([doc["text"] for doc in documents])
     answer = generate_answer(query, context)
 
-    return {"query": query, "answer": answer, "context": context}
+    return {"query": query, "answer": answer, "context": context, "model": "OpenAI GPT-4"}

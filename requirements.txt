@@ -4,7 +4,9 @@ mongoengine
 pymupdf
 sentence-transformers
 torch
+transformers
+sentencepiece
+accelerate
 openai
 redis
 python-dotenv
-python-multipart

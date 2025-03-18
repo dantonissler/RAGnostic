@@ -1,9 +1,11 @@
+import os
+
 import redis
 import json
 from functools import wraps
 from typing import Callable
 
-redis_client = redis.Redis.from_url("redis://redis:6379")
+redis_client = redis.Redis.from_url(os.getenv("REDIS_URL"))
 
 
 def cache_response(ttl: int = 3600):

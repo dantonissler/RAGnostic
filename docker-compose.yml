@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.8'
 
 services:
   mongo:
@@ -18,12 +18,12 @@ services:
   web:
     build: .
     ports:
-      - "8000:8000"
+      - "8000:80"
     depends_on:
       - mongo
       - redis
-    env_file:
-      - .env
+    environment:
+      - OPENAI_API_KEY=sua_chave_openai
     volumes:
       - .:/app
 
